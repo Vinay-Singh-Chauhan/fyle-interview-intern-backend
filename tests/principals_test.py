@@ -1,5 +1,16 @@
 from core.models.assignments import AssignmentStateEnum, GradeEnum
 
+def test_get_teachers(client, h_principal):
+    response = client.get(
+        '/principal/teachers',
+        headers=h_principal
+    )
+
+    assert response.status_code == 200
+
+    data = response.json['data']
+    for teacher in data:
+        assert teacher["user_id"] in [3,4]
 
 def test_get_assignments(client, h_principal):
     response = client.get(

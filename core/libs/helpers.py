@@ -12,4 +12,4 @@ class GeneralObject:
 
 
 def get_utc_now():
-    return datetime.utcnow()
+    return datetime.now()
